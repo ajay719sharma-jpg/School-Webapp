@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Ajay Public Secondary School, Simraungadh, Bara, Nepal: faculty, student gallery and notices.">
+<title>Ajay Public Secondary School, Simraungadh</title>
+<style>
+:root{
+  --bg:#f3f5f4;--card:#fff;--ink:#16211d;--mute:#59675f;--line:#d6ddd9;
+  --board:#1d3b33;--board2:#27493f;--gold:#e8a317;--gold-ink:#1d3b33;--on-board:#f3f5f4;
+  --danger:#b3382c;--r:10px;
+  --serif:Georgia,"Times New Roman",serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1714;--card:#18231f;--ink:#e7eeea;--mute:#98a8a0;--line:#2a3a34;--board:#14302a;--board2:#1b3d35}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--sans)}
+h1,h2,h3{font-family:var(--serif);line-height:1.2;margin:0 0 .5em}
+h2{font-size:1.7rem}h3{font-size:1.1rem}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.skip{position:absolute;left:-999px;top:0;background:var(--gold);color:var(--gold-ink);padding:8px 14px;z-index:99}
+.skip:focus{left:8px;top:8px}
+
+/* header */
+header{background:var(--board);color:var(--on-board);position:sticky;top:0;z-index:20;box-shadow:0 2px 0 var(--gold)}
+.bar{display:flex;align-items:center;gap:14px;padding-block:10px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.crest{width:44px;height:44px;border-radius:50%;background:var(--gold);color:var(--gold-ink);display:grid;place-items:center;font:700 22px var(--serif);flex:none}
+.brand b{font:700 1.05rem/1.15 var(--serif);display:block}
+.brand small{opacity:.8;font-size:.8rem}
+nav{margin-left:auto;display:flex;gap:2px;overflow-x:auto;max-width:100%}
+nav button{background:none;border:0;color:inherit;font:600 .95rem var(--sans);padding:9px 13px;border-radius:7px;cursor:pointer;white-space:nowrap}
+nav button:hover{background:var(--board2)}
+nav button[aria-current="page"]{background:var(--gold);color:var(--gold-ink)}
+
+/* hero */
+.hero{background:var(--board);color:var(--on-board);border-radius:var(--r);margin:22px 0;padding:clamp(28px,6vw,60px);
+  background-image:repeating-linear-gradient(135deg,transparent 0 22px,rgba(255,255,255,.035) 22px 23px)}
+.hero .motto{font:italic 1.05rem var(--serif);color:var(--gold);margin:0 0 10px}
+.hero h1{font-size:clamp(1.9rem,5.5vw,3.2rem);font-weight:700;max-width:15em;margin-bottom:.4em}
+.hero p{max-width:36em;opacity:.92;margin:0 0 20px}
+.btn{display:inline-block;background:var(--gold);color:var(--gold-ink);border:2px solid var(--gold);font:600 1rem var(--sans);padding:10px 18px;border-radius:8px;cursor:pointer;text-decoration:none}
+.btn:hover{filter:brightness(1.07)}
+.btn.ghost{background:transparent;color:inherit;border-color:currentColor}
+.btn.sm{padding:6px 12px;font-size:.9rem}
+.btn.danger{background:var(--danger);border-color:var(--danger);color:#fff}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:28px}
+.stat{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:8px;padding:12px 16px}
+.stat b{display:block;font:700 1.9rem var(--serif)}
+.stat span{color:var(--mute);font-size:.92rem}
+
+section.page{padding-bottom:50px}
+.lead{color:var(--mute);margin-top:-.2em;max-width:42em}
+
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;position:relative}
+.ph{aspect-ratio:1;display:grid;place-items:center;color:#fff;font:700 3rem var(--serif);background-size:cover;background-position:center}
+.card .t{padding:12px 14px 14px}
+.card h3{margin:0 0 2px}
+.card .role{color:var(--mute);font-size:.92rem}
+.tag{display:inline-block;background:var(--bg);border:1px solid var(--line);border-radius:99px;padding:1px 10px;font-size:.8rem;color:var(--mute);margin-top:6px}
+.rm{position:absolute;top:8px;right:8px;background:rgba(0,0,0,.65);color:#fff;border:0;border-radius:50%;width:32px;height:32px;font-size:18px;cursor:pointer}
+.rm:hover{background:var(--danger)}
+
+/* gallery */
+.gal{columns:3 220px;column-gap:16px}
+.gal figure{margin:0 0 16px;break-inside:avoid;background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;position:relative}
+.gal button.open{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;color:inherit;text-align:left}
+.gal img{display:block;width:100%;height:auto}
+.gal .ph{aspect-ratio:4/3;font-size:1rem;padding:12px;text-align:center}
+.gal figcaption{padding:9px 13px;font-size:.95rem}
+.gal figcaption small{color:var(--mute)}
+
+/* controls */
+.tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:0 0 20px}
+.chip{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:6px 15px;border-radius:99px;cursor:pointer;font:600 .92rem var(--sans)}
+.chip[aria-pressed="true"]{background:var(--board);color:var(--on-board);border-color:var(--board)}
+input,select,textarea{font:inherit;padding:9px 11px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);width:100%}
+.search{max-width:260px}
+form.panel{background:var(--card);border:1px dashed var(--mute);border-radius:var(--r);padding:16px;margin-bottom:22px;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));align-items:end}
+label{display:grid;gap:4px;font-size:.88rem;color:var(--mute);font-weight:600}
+.empty{background:var(--card);border:1px dashed var(--line);border-radius:var(--r);padding:28px;text-align:center;color:var(--mute)}
+
+/* notices */
+.notice{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px 18px;margin-bottom:12px;display:flex;gap:16px}
+.notice .d{flex:none;text-align:center;min-width:58px;background:var(--board);color:var(--on-board);border-radius:8px;padding:6px;font:700 .85rem var(--sans);align-self:flex-start}
+.notice .d b{display:block;font:700 1.5rem var(--serif);color:var(--gold)}
+.notice p{margin:0;color:var(--mute)}
+.notice .grow{flex:1}
+
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.info .card{padding:18px}
+.editbar{background:var(--gold);color:var(--gold-ink);padding:8px 0;font-weight:600;font-size:.92rem}
+.editbar .wrap{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+
+/* lightbox */
+dialog{border:0;border-radius:var(--r);padding:0;background:#111;color:#fff;max-width:94vw;overflow:hidden}
+dialog::backdrop{background:rgba(0,0,0,.85)}
+dialog img{display:block;max-width:92vw;max-height:76vh;margin:auto}
+.lbcap{padding:12px 16px;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:8px;z-index:50;opacity:0;pointer-events:none;transition:opacity .25s}
+.toast.on{opacity:1}
+footer{border-top:1px solid var(--line);color:var(--mute);text-align:center;padding:22px 18px;font-size:.9rem}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.toast{transition:none}}
+@media (max-width:560px){.notice{flex-direction:column;gap:8px}.notice .d{display:flex;gap:8px;align-items:baseline;justify-content:center;width:max-content;padding:4px 12px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#app">Skip to content</a>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#home" aria-label="Ajay Public Secondary School home">
+      <span class="crest" aria-hidden="true">A</span>
+      <span><b>Ajay Public Secondary School</b><small>Simraungadh, Bara, Nepal</small></span>
+    </a>
+    <nav id="nav" aria-label="Main"></nav>
+  </div>
+</header>
+<div id="editbar" class="editbar" hidden>
+  <div class="wrap">
+    <span>Edit mode is on. Changes are saved in this browser.</span>
+    <button class="btn sm ghost" id="bkExport" style="color:inherit">Export backup</button>
+    <label class="btn sm ghost" style="color:inherit;display:inline-block;cursor:pointer">Import backup<input id="bkImport" type="file" accept="application/json" hidden></label>
+    <button class="btn sm ghost" id="pinChange" style="color:inherit">Change PIN</button>
+  </div>
+</div>
+
+<main id="app" class="wrap" tabindex="-1"></main>
+<footer>&copy; <span id="yr"></span> Ajay Public Secondary School, Simraungadh. All rights reserved.</footer>
+
+<dialog id="lb" aria-label="Photo viewer">
+  <img id="lbImg" alt="">
+  <div class="lbcap">
+    <span id="lbCap"></span>
+    <span class="row">
+      <button class="btn sm ghost" id="lbPrev" aria-label="Previous photo">Previous</button>
+      <button class="btn sm ghost" id="lbNext" aria-label="Next photo">Next</button>
+      <button class="btn sm" id="lbClose">Close</button>
+    </span>
+  </div>
+</dialog>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script>
+"use strict";
+/* ---------- data layer: IndexedDB with in-memory fallback ---------- */
+const DEFAULTS = {
+  pin: "1234",
+  faculty: [
+    {id:1,name:"Sample Name",role:"Principal",subject:"Administration"},
+    {id:2,name:"Sample Name",role:"Vice Principal",subject:"Mathematics"},
+    {id:3,name:"Sample Name",role:"Teacher",subject:"Science"},
+    {id:4,name:"Sample Name",role:"Teacher",subject:"English"},
+    {id:5,name:"Sample Name",role:"Teacher",subject:"Nepali"},
+    {id:6,name:"Sample Name",role:"Teacher",subject:"Social Studies"}
+  ],
+  gallery: [
+    {id:1,cat:"Students",cap:"Morning assembly"},
+    {id:2,cat:"Students",cap:"Class 10 batch"},
+    {id:3,cat:"Events",cap:"Annual day"},
+    {id:4,cat:"Sports",cap:"Inter-school football"},
+    {id:5,cat:"Students",cap:"Science fair"},
+    {id:6,cat:"Events",cap:"Saraswati Puja"}
+  ],
+  notices: [
+    {id:1,date:new Date().toISOString().slice(0,10),title:"Welcome to our new website",body:"Turn on Edit mode to post exam dates, holidays and admission news here."}
+  ]
+};
+let S = structuredClone(DEFAULTS);
+const DB = {
+  db:null,
+  open(){return new Promise(res=>{
+    try{
+      const r=indexedDB.open("ajay-school",1);
+      r.onupgradeneeded=()=>r.result.createObjectStore("kv");
+      r.onsuccess=()=>{DB.db=r.result;res()};
+      r.onerror=()=>res();
+    }catch(e){res()}
+  })},
+  get(){return new Promise(res=>{
+    if(!DB.db)return res(null);
+    try{const q=DB.db.transaction("kv").objectStore("kv").get("state");q.onsuccess=()=>res(q.result||null);q.onerror=()=>res(null)}catch(e){res(null)}
+  })},
+  set(v){try{if(DB.db)DB.db.transaction("kv","readwrite").objectStore("kv").put(v,"state")}catch(e){toast("Could not save in this browser.")}}
+};
+const save=()=>DB.set(S);
+
+/* ---------- helpers ---------- */
+const $=(s,r=document)=>r.querySelector(s);
+const esc=t=>String(t??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const COLORS=["#2f6f5e","#3d5a99","#a2503c","#7a5a9c","#9a6b10","#2f7080"];
+const initials=n=>n.trim().split(/\s+/).map(w=>w[0]).slice(0,2).join("").toUpperCase();
+const uid=()=>Date.now()+Math.floor(Math.random()*1000);
+let tt;function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(tt);tt=setTimeout(()=>t.classList.remove("on"),2600)}
+function shrink(file,max=900){return new Promise((res,rej)=>{
+  if(!file)return res("");
+  const fr=new FileReader();
+  fr.onerror=rej;
+  fr.onload=()=>{const im=new Image();im.onerror=rej;
+    im.onload=()=>{const k=Math.min(1,max/Math.max(im.width,im.height));
+      const c=document.createElement("canvas");c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);
+      c.getContext("2d").drawImage(im,0,0,c.width,c.height);res(c.toDataURL("image/jpeg",.8))};
+    im.src=fr.result};
+  fr.readAsDataURL(file)})}
+const fmtDate=d=>{const x=new Date(d+"T00:00:00");return isNaN(x)?{day:"",mon:esc(d)}:{day:x.getDate(),mon:x.toLocaleString("en",{month:"short",year:"numeric"})}};
+
+/* ---------- state ---------- */
+let edit=false,page="home",galCat="All",facRole="All",facQ="";
+const PAGES=[["home","Home"],["faculty","Faculty"],["gallery","Gallery"],["notices","Notices"],["contact","Contact"]];
+const CATS=["Students","Events","Sports"];
+
+function avatar(o,i,alt){
+  return o.img?`<div class="ph" style="background-image:url('${o.img}')" role="img" aria-label="${esc(alt)}"></div>`
+    :`<div class="ph" style="background:${COLORS[i%COLORS.length]}" aria-hidden="true">${o.name?esc(initials(o.name)):""}</div>`;
+}
+const rmBtn=(kind,id,label)=>edit?`<button class="rm" data-del="${kind}:${id}" aria-label="Remove ${esc(label)}">&times;</button>`:"";
+
+/* ---------- views ---------- */
+const VIEWS={
+home(){
+  const n=S.notices.slice(0,2);
+  return `<section class="hero" aria-labelledby="h1">
+    <p class="motto">Learn. Grow. Serve.</p>
+    <h1 id="h1">Ajay Public Secondary School</h1>
+    <p>A community school in Simraungadh, Bara, helping local children build strong learning, good character and confidence for the future.</p>
+    <div class="row"><a class="btn" href="#faculty">Meet our faculty</a><a class="btn ghost" href="#gallery">View student gallery</a></div>
+  </section>
+  <div class="stats">
+    <div class="stat"><b>${S.faculty.length}</b><span>Faculty members</span></div>
+    <div class="stat"><b>${S.gallery.length}</b><span>Gallery photos</span></div>
+    <div class="stat"><b>${S.notices.length}</b><span>Notices posted</span></div>
+  </div>
+  <section class="page"><h2>Latest notices</h2>
+    ${n.length?n.map(noticeHTML).join(""):'<div class="empty">No notices yet.</div>'}
+    <p><a href="#notices">See all notices</a></p></section>`;
+},
+faculty(){
+  const roles=["All",...new Set(S.faculty.map(f=>f.role).filter(Boolean))];
+  const q=facQ.toLowerCase();
+  const list=S.faculty.filter(f=>(facRole==="All"||f.role===facRole)&&(!q||(f.name+" "+f.subject+" "+f.role).toLowerCase().includes(q)));
+  return `<section class="page"><h2>Our faculty</h2><p class="lead">The teachers and staff who guide our students every day.</p>
+  ${edit?`<form class="panel" id="fForm"><label>Full name<input name="name" required maxlength="60"></label>
+    <label>Role<input name="role" value="Teacher" maxlength="40"></label>
+    <label>Subject<input name="subject" maxlength="40"></label>
+    <label>Photo (optional)<input type="file" name="img" accept="image/*"></label>
+    <button class="btn">Add faculty member</button></form>`:""}
+  <div class="tools"><input class="search" id="fSearch" type="search" placeholder="Search name or subject" aria-label="Search faculty" value="${esc(facQ)}">
+    ${roles.map(r=>`<button class="chip" data-role="${esc(r)}" aria-pressed="${r===facRole}">${esc(r)}</button>`).join("")}</div>
+  ${list.length?`<div class="grid">${list.map((f,i)=>`<article class="card">${avatar(f,i,f.name)}${rmBtn("faculty",f.id,f.name)}
+    <div class="t"><h3>${esc(f.name)}</h3><div class="role">${esc(f.role)}</div>${f.subject?`<span class="tag">${esc(f.subject)}</span>`:""}</div></article>`).join("")}</div>`
+   :`<div class="empty">No faculty match your search.${edit?"":" Turn on Edit mode to add teachers."}</div>`}</section>`;
+},
+gallery(){
+  const list=S.gallery.filter(g=>galCat==="All"||g.cat===galCat);
+  return `<section class="page"><h2>Students gallery</h2><p class="lead">Moments from classrooms, events and the playground.</p>
+  ${edit?`<form class="panel" id="gForm"><label>Caption<input name="cap" required maxlength="80"></label>
+    <label>Category<select name="cat">${CATS.map(c=>`<option>${c}</option>`).join("")}</select></label>
+    <label>Photo<input type="file" name="img" accept="image/*" required></label>
+    <button class="btn">Add photo</button></form>`:""}
+  <div class="tools">${["All",...CATS].map(c=>`<button class="chip" data-cat="${c}" aria-pressed="${c===galCat}">${c}</button>`).join("")}</div>
+  ${list.length?`<div class="gal">${list.map((g,i)=>`<figure>
+    ${g.img?`<button class="open" data-open="${g.id}" aria-label="Open photo: ${esc(g.cap)}"><img src="${g.img}" alt="${esc(g.cap)}" loading="lazy"></button>`
+      :`<div class="ph" style="background:${COLORS[i%COLORS.length]}">${esc(g.cap)}</div>`}
+    ${rmBtn("gallery",g.id,g.cap)}
+    <figcaption>${esc(g.cap)} <small>(${esc(g.cat)})</small></figcaption></figure>`).join("")}</div>`
+   :`<div class="empty">No photos in this category yet.</div>`}</section>`;
+},
+notices(){
+  return `<section class="page"><h2>Notices</h2><p class="lead">Exam dates, holidays and announcements.</p>
+  ${edit?`<form class="panel" id="nForm"><label>Date<input type="date" name="date" required value="${new Date().toISOString().slice(0,10)}"></label>
+    <label>Title<input name="title" required maxlength="100"></label>
+    <label>Details<textarea name="body" rows="2" maxlength="500"></textarea></label>
+    <button class="btn">Post notice</button></form>`:""}
+  ${S.notices.length?S.notices.map(noticeHTML).join(""):'<div class="empty">No notices yet.</div>'}</section>`;
+},
+contact(){
+  return `<section class="page"><h2>Contact us</h2>
+  <div class="info">
+    <div class="card" style="padding:18px"><h3>Address</h3><p>Ajay Public Secondary School<br>Simraungadh, Bara District<br>Madhesh Province, Nepal</p></div>
+    <div class="card" style="padding:18px"><h3>Phone and email</h3><p>Add your school's phone number and email address here.</p></div>
+    <div class="card" style="padding:18px"><h3>Office hours</h3><p>Sunday to Friday, during school hours.</p></div>
+  </div></section>`;
+}};
+function noticeHTML(n){const d=fmtDate(n.date);
+  return `<article class="notice"><div class="d"><b>${d.day}</b>${d.mon}</div>
+  <div class="grow"><h3>${esc(n.title)}</h3>${n.body?`<p>${esc(n.body)}</p>`:""}</div>
+  ${edit?`<button class="btn sm danger" data-del="notices:${n.id}" aria-label="Remove notice ${esc(n.title)}">Remove</button>`:""}</article>`}
+
+/* ---------- render ---------- */
+function render(focus){
+  $("#nav").innerHTML=PAGES.map(([k,l])=>`<button data-go="${k}" ${k===page?'aria-current="page"':""}>${l}</button>`).join("")
+    +`<button data-edit aria-pressed="${edit}">${edit?"Exit edit mode":"Edit mode"}</button>`;
+  $("#app").innerHTML=VIEWS[page]();
+  $("#editbar").hidden=!edit;
+  document.title=(page==="home"?"":PAGES.find(p=>p[0]===page)[1]+" | ")+"Ajay Public Secondary School";
+  if(focus){$("#app").focus({preventScroll:true});scrollTo(0,0)}
+}
+function route(){const h=location.hash.slice(1);page=VIEWS[h]?h:"home";render(true)}
+
+/* ---------- events ---------- */
+document.addEventListener("click",e=>{
+  const t=e.target.closest("button,a");if(!t)return;
+  if(t.dataset.go){location.hash=t.dataset.go;if(location.hash.slice(1)===t.dataset.go&&page!==t.dataset.go)return;route()}
+  else if(t.hasAttribute("data-edit")){toggleEdit()}
+  else if(t.dataset.cat){galCat=t.dataset.cat;render()}
+  else if(t.dataset.role){facRole=t.dataset.role;render()}
+  else if(t.dataset.del){const[k,id]=t.dataset.del.split(":");
+    if(confirm("Remove this item? This cannot be undone.")){S[k]=S[k].filter(x=>String(x.id)!==id);save();render();toast("Removed")}}
+  else if(t.dataset.open){openLb(+t.dataset.open)}
+});
+document.addEventListener("input",e=>{if(e.target.id==="fSearch"){facQ=e.target.value;const pos=e.target.selectionStart;render();const i=$("#fSearch");i.focus();i.setSelectionRange(pos,pos)}});
+document.addEventListener("submit",async e=>{
+  e.preventDefault();const f=e.target,v=n=>f.elements[n].value.trim();
+  try{
+    if(f.id==="fForm"){S.faculty.push({id:uid(),name:v("name"),role:v("role")||"Teacher",subject:v("subject"),img:await shrink(f.elements.img.files[0])});toast("Faculty member added")}
+    if(f.id==="gForm"){S.gallery.unshift({id:uid(),cap:v("cap"),cat:f.elements.cat.value,img:await shrink(f.elements.img.files[0])});galCat="All";toast("Photo added")}
+    if(f.id==="nForm"){S.notices.unshift({id:uid(),date:v("date"),title:v("title"),body:v("body")});S.notices.sort((a,b)=>b.date.localeCompare(a.date));toast("Notice posted")}
+    save();render();
+  }catch(err){toast("That image could not be read. Try another photo.")}
+});
+window.addEventListener("hashchange",route);
+
+/* edit mode with PIN (a convenience lock only: this is a static page, not real security) */
+function toggleEdit(){
+  if(edit){edit=false;render();return}
+  const p=prompt("Enter the editor PIN (default is 1234):");
+  if(p===null)return;
+  if(p===S.pin){edit=true;render();toast("Edit mode on")}else toast("Wrong PIN")
+}
+$("#pinChange").onclick=()=>{const n=prompt("New PIN (4 or more characters):");if(n&&n.length>=4){S.pin=n;save();toast("PIN changed")}else if(n!==null)toast("PIN is too short")};
+$("#bkExport").onclick=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify(S)],{type:"application/json"}));a.download="ajay-school-backup.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
+$("#bkImport").onchange=async e=>{try{const d=JSON.parse(await e.target.files[0].text());
+  if(!Array.isArray(d.faculty)||!Array.isArray(d.gallery)||!Array.isArray(d.notices))throw 0;
+  S={...structuredClone(DEFAULTS),...d};save();render();toast("Backup restored")}catch(x){toast("That file is not a valid backup")}e.target.value=""};
+
+/* lightbox */
+let lbList=[],lbI=0;
+function openLb(id){lbList=S.gallery.filter(g=>g.img&&(galCat==="All"||g.cat===galCat));lbI=Math.max(0,lbList.findIndex(g=>g.id===id));showLb();$("#lb").showModal()}
+function showLb(){const g=lbList[lbI];$("#lbImg").src=g.img;$("#lbImg").alt=g.cap;$("#lbCap").textContent=g.cap+" ("+g.cat+")"}
+const step=d=>{lbI=(lbI+d+lbList.length)%lbList.length;showLb()};
+$("#lbPrev").onclick=()=>step(-1);$("#lbNext").onclick=()=>step(1);$("#lbClose").onclick=()=>$("#lb").close();
+$("#lb").addEventListener("keydown",e=>{if(e.key==="ArrowLeft")step(-1);if(e.key==="ArrowRight")step(1)});
+$("#lb").addEventListener("click",e=>{if(e.target.id==="lb")e.target.close()});
+
+/* ---------- start ---------- */
+(async()=>{
+  $("#yr").textContent=new Date().getFullYear();
+  await DB.open();
+  const saved=await DB.get();
+  if(saved)S={...structuredClone(DEFAULTS),...saved};
+  route();
+})();
+</script>
+</body>
+</html>
